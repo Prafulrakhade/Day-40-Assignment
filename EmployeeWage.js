@@ -78,7 +78,7 @@ let empHrs = 0
 // UC 5 While Loop (Repeatation statement)
 
 {
-    numOfWorkinfDays =20;
+    let numOfWorkinfDays =20;
     let maxHrsInMonth=160;
     let totalEmpHrs=0;
     let totaWorkingDays=0;
@@ -89,5 +89,32 @@ let empHrs = 0
         totalEmpHrs += getWorkingHours(empCheck);
     }
     let empWage = totalEmpHrs *WAGE_PER_HOUR;
-    console.log(" UC5 - Total Days : " + totaWorkingDays + " Total Hrs : " + totalEmpHrs + " Emp Wage : " + empWage);
+    console.log("UC5 - Total Days  " + totaWorkingDays + " : Total Hrs  " + totalEmpHrs + " : Emp Wage " + empWage);
 }
+
+// Array
+
+    let numOfWorkinfDays =20;
+    let maxHrsInMonth=160;
+    let totalEmpHrs=0;
+    let totaWorkingDays=0;    
+    let empDailyWageArr = new Array();
+    let empDailyWageMap = new Map();
+    let empDailyHrsMap = new Map();
+
+    function CalDailyWage(empHrs)
+    {
+        return empHrs * WAGE_PER_HOUR;
+    }
+
+    while (totalEmpHrs <= maxHrsInMonth && totaWorkingDays < numOfWorkinfDays)
+    {
+        totaWorkingDays++;
+        let empCheck = Math.floor(Math.random() * 10 ) % 3;
+        let empHrs = getWorkingHours(empCheck);
+        totalEmpHrs += empHrs;
+        empDailyWageArr.push(CalDailyWage(empHrs));
+    }
+
+    let empWage = CalDailyWage(totalEmpHrs);
+    console.log("UC6 - Total Days  " + totaWorkingDays + " : Total Hrs  " + totalEmpHrs + " : Emp Wage " + empWage);
